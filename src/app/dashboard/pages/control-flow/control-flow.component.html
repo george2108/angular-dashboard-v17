@@ -1,1 +1,67 @@
-<h1>Hola son el control flow perro</h1>
+<h1 class="text-3xl mb-5">Control flow</h1>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+    <div class="bg-white rounded shadow p-10">
+
+        <h2 class="text-2xl font-bold mb-5">if: {{ showContent() }}</h2>
+
+        <button (click)="toggleContent()" class="p-2 bg-blue-500 rounded text-white">
+            click me
+        </button>
+
+        @if (showContent()) {
+        <p>Hola mundo</p>
+        } @else {
+        <p>Adios mundo</p>
+        }
+
+    </div>
+
+
+
+    <div class="bg-white rounded shadow p-10">
+
+        <p>Tu calificación es: <span class="font-bold">{{grade()}}</span></p>
+        @switch (grade()) {
+        @case ('A') {
+        <p>Excelente</p>
+        }
+        @case ('B') {
+        <p>Bien</p>
+        }
+        @case ('F') {
+        <p>Reprobado</p>
+        }
+        @default {
+        <p>Calificación no válida</p>
+        }
+        }
+
+    </div>
+
+
+    <div class="bg-white rounded shadow p-10">
+
+        <ul>
+            <!-- el for tiene propiedades adicionales con indice, primero, ultimo, par, impar y total de elementos con count -->
+            @for (item of frameworks(); track item;
+            let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count
+            ) {
+            <li>{{ item }}</li>
+            }
+        </ul>
+
+        <hr>
+
+        <ul>
+            @for (item of frameworks2(); track $index) {
+            <li>{{ item }}</li>
+            }@empty {
+            <p>No hay frameworks en la lista 2</p>
+            }
+        </ul>
+
+    </div>
+
+</section>
