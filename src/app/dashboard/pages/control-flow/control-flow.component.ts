@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { TitleComponent } from '../../../shared/title/title.component';
 
 type Grade = 'A' | 'B' | 'F';
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TitleComponent],
   templateUrl: './control-flow.component.html',
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
